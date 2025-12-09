@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clan Storage Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div id="app" class="container">
+    <aside class="sidebar">
+        <h2>⚔ Clan Dashboard</h2>
+        <ul>
+            <li onclick="showTab('items')">📦 Item trong kho</li>
+            <li onclick="showTab('requests')">📥 Yêu cầu xin đồ</li>
+            <li onclick="showTab('users')">👤 Thành viên</li>
+        </ul>
+    </aside>
+
+    <main class="content">
+
+        <!-- TAB 1: ITEMS -->
+        <section id="tab-items" class="tab active">
+            <h1>📦 Danh sách Item</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên Item</th>
+                        <th>Loại</th>
+                        <th>Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody id="items-table"></tbody>
+            </table>
+        </section>
+
+        <!-- TAB 2: REQUESTS -->
+        <section id="tab-requests" class="tab">
+            <h1>📥 Yêu cầu của thành viên</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Người xin</th>
+                        <th>Item</th>
+                        <th>Loại</th>
+                        <th>Ngày</th>
+                        <th>Duyệt</th>
+                    </tr>
+                </thead>
+                <tbody id="requests-table"></tbody>
+            </table>
+        </section>
+
+        <!-- TAB 3: USERS -->
+        <section id="tab-users" class="tab">
+            <h1>👤 Danh sách thành viên</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>ID Discord</th>
+                        <th>Role</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table"></tbody>
+            </table>
+        </section>
+
+    </main>
+</div>
+
+<!-- JS -->
+<script src="/js/items.js"></script>
+<script src="/js/requests.js"></script>
+<script src="/js/users.js"></script>
+
+<script>
+function showTab(tabName) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+}
+</script>
+
+</body>
+</html>
